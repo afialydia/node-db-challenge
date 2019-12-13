@@ -3,24 +3,22 @@ exports.up = function(knex) {
 		.createTable("resources", t => {
 			t.increments("id");
 
-			t.text("name")
+			t.string("name")
 				.notNullable()
 				.unique();
 
-			t.text("description");
+			t.string("description");
 		})
 
 		.createTable("project", t => {
 			t.increments("id");
 
-			t.text("name")
+			t.string("name")
 				.notNullable();
 
-			t.text("description").notNullable();
+			t.string("description").notNullable();
 
-            t.text("notes");
-            
-            t. t.specificType('stringarray')
+			t.string("notes");
 
 			t.integer("resource_id")
 				.unsigned()
@@ -43,9 +41,7 @@ exports.up = function(knex) {
 				.onUpdate("CASCADE")
 				.onDelete("CASCADE");
 
-			t.integer("step_number").notNullable();
-
-            t.text("step").notNullable();
+            t.string("task").notNullable();
 
             t.boolean("completed").defaultTo(false);
 
