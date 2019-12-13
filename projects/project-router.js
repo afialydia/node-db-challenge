@@ -34,7 +34,6 @@ router.get("/:id/tasks", (req, res) => {
     Project.getTasks(id)
 		.then(projects => {
 
-            // !projects.completed :   :
 			res.json(projects);
 		})
 		.catch(err => {
@@ -50,7 +49,7 @@ router.post("/:id/tasks", (req, res) => {
 
     Project.newTask(taskData)
         .then(task => {
-            res.status(201).json(task);
+            res.status(201).json({message: 'task added'});
         })
         .catch(err => {
             console.log("Error inserting project:", err);

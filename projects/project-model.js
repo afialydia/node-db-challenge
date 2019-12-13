@@ -47,7 +47,7 @@ function newTask(task) {
 
 function getTasks(id) {
     
-    const tasks = db("task").select('t.id', 'p.name','t.task','t.completed')
+    const tasks = db("task").select('t.task', 't.completed','p.name as Project Name','t.id')
     .from("task as t").join("project as p", "p.id", "t.project_id")
     .where({ project_id: id });
 
