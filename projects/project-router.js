@@ -6,7 +6,6 @@ router.get("/", (req, res) => {
 	Project.getProjects()
 		.then(projects => {
 
-            // !projects.completed :   :
 			res.json(projects);
 		})
 		.catch(err => {
